@@ -9,6 +9,36 @@ import Form from '../Form/Form';
 import Pagination from './Pagination';
 
 
+import React from 'react';
+import { YMaps, Map, ObjectManager } from 'react-yandex-maps';
+import data from './data.json';
+
+const mapState = { center: [28.221740, 98.369353], zoom: 3 };
+const ObjectManagerDemo = () =>
+  <YMaps>
+    <Map state={mapState} width='1550px' height='600px' >
+      <ObjectManager
+        options={{
+          clusterize: true,
+          gridSize: 32,
+        }}
+        properties={{
+          hintContent: 'Собственный значок метки',
+          balloonContentHeader: 'Это красивая метка'
+        }}
+        objects={{
+          preset: 'islands#greenDotIcon',
+        }}
+        clusters={{
+          preset: 'islands#greenClusterIcons',
+        }}
+        features={data.features}
+      />
+    </Map>
+  </YMaps>;
+
+ObjectManagerDemo;
+
 
 export default function HomePage({user, setUser}) {
   const [coffees, setCoffees] = useState([]);
@@ -55,8 +85,9 @@ const paginate = pageNumber => setCurrentPage(pageNumber)
             }}  onChange={(event) => setValue(event.target.value)} type='text' name='search' placeholder='Search coffee'/>
     
       <ListCoffee coffees={currentCoffee} setCoffees={setCoffees} user={user} setUser={setUser}/>
-      <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>
-      
+      <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>      
+        <ObjectManagerDemo />
+        
     </div>
     </>
   );
