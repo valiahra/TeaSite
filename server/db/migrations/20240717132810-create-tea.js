@@ -2,50 +2,47 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Coffees', {
+    await queryInterface.createTable('Teas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      title: {
         type: Sequelize.STRING
       },
-      price: {
+      placeOrigin: {
         type: Sequelize.STRING
       },
       img: {
         type: Sequelize.STRING
       },
-      like: {
-        type: Sequelize.INTEGER
-      },
-      coffeeType: {
-        type: Sequelize.STRING
-      },
-      roasting: {
-        type: Sequelize.STRING
-      },
-      country: {
-        type: Sequelize.STRING
-      },
-      info: {
+      description: {
         type: Sequelize.TEXT
+      },
+      corX: {
+        type: Sequelize.DOUBLE
+      },
+      corY: {
+        type: Sequelize.DOUBLE
+      },
+      link: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: Sequelize.fn('NOW'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: Sequelize.fn('NOW'),
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Coffees');
+    await queryInterface.dropTable('Teas');
   }
 };
