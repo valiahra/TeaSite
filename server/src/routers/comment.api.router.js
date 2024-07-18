@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const { Tea, User, Comment } = require("../../db/models");
+const { Tea, User, Review } = require("../../db/models");
 const { verifyAccessToken } = require("../middlewares/verifyToken");
 const { isAdmin } = require("../middlewares/isAdmin");
 
 router
   .get("/", async (req, res) => {
     try {
-      const comments = await Comment.findAll({
+      const comments = await Review.findAll({
         include: [{ model: User }, { model: Tea }],
       });
       res.json(comments);
@@ -25,7 +25,7 @@ router
 
     try {
       if (res.locals.user) {
-        const comment = await Comment.create({
+        const comment = await Review.create({
           text,
           userId: res.locals.user.id,
           teaId: teaNumber,
