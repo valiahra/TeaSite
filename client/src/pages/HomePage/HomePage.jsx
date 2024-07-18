@@ -9,39 +9,39 @@ import Form from '../Form/Form';
 import Pagination from './Pagination';
 
 
-import React from 'react';
-import { YMaps, Map, ObjectManager } from 'react-yandex-maps';
-import data from './data.json';
+// import React from 'react';
+// import { YMaps, Map, ObjectManager } from 'react-yandex-maps';
+// import data from './data.json';
 
-const mapState = { center: [28.221740, 98.369353], zoom: 3 };
-const ObjectManagerDemo = () =>
-  <YMaps
+// const mapState = { center: [28.221740, 98.369353], zoom: 3 };
+// const ObjectManagerDemo = () =>
+//   <YMaps
   
-  >
-    <Map state={mapState} width='1550px' height='600px' >
-      <ObjectManager
-        options={{
-          clusterize: true,
-          gridSize: 32,
-        }}        
-        objects={{
-          preset: 'islands#greenDotIcon',
-          hasBalloon: true,
+//   >
+//     <Map state={mapState} width='1550px' height='600px' >
+//       <ObjectManager
+//         options={{
+//           clusterize: true,
+//           gridSize: 32,
+//         }}        
+//         objects={{
+//           preset: 'islands#greenDotIcon',
+//           hasBalloon: true,
           
-        }}
-        clusters={{
-          preset: 'islands#greenClusterIcons',
-        }}
-        features={data.features}
-      />
-    </Map>
-  </YMaps>;
+//         }}
+//         clusters={{
+//           preset: 'islands#greenClusterIcons',
+//         }}
+//         features={data.features}
+//       />
+//     </Map>
+//   </YMaps>;
 
-ObjectManagerDemo;
+// ObjectManagerDemo;
 
 
 export default function HomePage({user, setUser}) {
-  const [coffees, setCoffees] = useState([]);
+  const [teas, setTeas] = useState([]);
   const [value, setValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [coffeesPerPage] = useState(2);
@@ -49,17 +49,18 @@ export default function HomePage({user, setUser}) {
   // console.log(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_API}/coffee`)
   useEffect(() => {
     axiosInstance
-      .get(`${import.meta.env.VITE_API}/coffee`)
+      .get(`${import.meta.env.VITE_API}/tea`)
       .then((res) => {
         // console.log(res.data)
-        setCoffees(res.data);
+        setTeas(res.data);
+        console.log(res.data)
       })
       .catch((err) => console.error(err));
   }, []);
 // console.log(coffees)
 
-const filteredCoffee = coffees.filter((coffee)=>{
-  return coffee.name.toLowerCase().includes(value.toLowerCase())
+const filteredCoffee = teas.filter((tea)=>{
+  return tea.title.toLowerCase().includes(value.toLowerCase())
 })
 
 const lastCoffeeIndex = currentPage * coffeesPerPage;
@@ -70,7 +71,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber)
 
   return (
     <>
-    {user.isAdmin? (<Form coffees={coffees} setCoffees={setCoffees}/>) : null}
+    {user.isAdmin? (<Form teas={teas} setTeas={setTeas}/>) : null}
     
     <div > 
       
@@ -84,9 +85,9 @@ const paginate = pageNumber => setCurrentPage(pageNumber)
               marginTop: "1%",
             }}  onChange={(event) => setValue(event.target.value)} type='text' name='search' placeholder='Search coffee'/>
     
-      <ListCoffee coffees={currentCoffee} setCoffees={setCoffees} user={user} setUser={setUser}/>
-      <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>      
-        <ObjectManagerDemo />
+      <ListCoffee teas={currentCoffee} setTeas={setTeas} user={user} setUser={setUser}/>
+      <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={teas.length} paginate={paginate}/>      
+        {/* <ObjectManagerDemo /> */}
         
     </div>
     </>

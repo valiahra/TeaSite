@@ -1,11 +1,11 @@
 import CardOfCoffee from '../Card/Card';
 
-export default function ListCoffee({coffees, setCoffees, user, setUser}) {
+export default function ListCoffee({teas, setTeas, user, setUser}) {
   return (
     <div>
-      {coffees.length
-        ? coffees.map((el) => (
-            <CardOfCoffee key={el.id} coffee={el} setCoffees={setCoffees} user={user} setUser={setUser} />
+      {teas.length
+        ? teas.map((el) => (
+            <CardOfCoffee key={el.id} tea={el} setTeas={setTeas} user={user} setUser={setUser} />
           ))
         : null}
     </div>

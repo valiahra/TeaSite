@@ -17,23 +17,24 @@ router
   })
 
   .post("/new", verifyAccessToken, async (req, res) => {
-    const { text } = req.body.inputs;
-    const teaNumber = req.body.teaNumber;
-
+    const { text, teaId, author } = req.body;
+    // const { teaId } = req.body.teaId;
 
     // const { id } = req.params;
 
     try {
-      if (res.locals.user) {
-        const comment = await Review.create({
-          text,
-          userId: res.locals.user.id,
-          teaId: teaNumber,
-        });
-        res.json(comment);
-      } else {
-        res.status(400).json({ message: "У вас нет прав на отправку записи" });
-      }
+      // if (res.locals.user) {
+      const comment = await Review.create({
+        // include: [{ model: User }],
+        text,
+        userId: res.locals.user.id,
+        teaId,
+        author,
+      });
+      res.json(comment);
+      // } else {
+      //   res.status(400).json({ message: "У вас нет прав на отправку записи" });
+      // }
     } catch (error) {
       console.error(error);
       res.sendStatus(400);

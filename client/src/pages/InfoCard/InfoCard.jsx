@@ -7,14 +7,14 @@ import CommentItem from '../CommentItem/CommentItem';
 import FormAddComment from '../FormAddComment/FormAddComment';
 
 export default function InfoCard({user}) {
-  const [card, setCard] = useState({})
+  const [card, setCard] = useState({Comments:[]})
   const { id } = useParams();
   const back = useNavigate();
   const [addComment, setAddComment] = useState(true);
 
     useEffect(() => {
       axiosInstance
-        .get(`${import.meta.env.VITE_API}/tee/${id}`)
+        .get(`${import.meta.env.VITE_API}/tea/${id}`)
         .then((res) => {
            console.log(res.data)
            setCard(res.data);
@@ -37,13 +37,13 @@ export default function InfoCard({user}) {
         </Card.Text>
         <Button  onClick={() => back(-1)} variant="primary" class="btn btn-outline-dark">Назад</Button>
       </Card.Body>
-      {user && (<>
+      {user.username && (<>
             {addComment ? (<>
       <button type='button' onClick={() => setAddComment((prev) => !prev)} className='add-remind-button'>add remind</button>
-          {card?.Comments?.map((comment) => (<CommentItem key={comment.id} comment={comment} setCard={setCard} user={user } />))}
+          {card?.Reviews?.map((comment) => (<CommentItem key={comment.id} comment={comment} setCard={setCard} user={user } />))}
                     </>) : (<>
           <FormAddComment card={card} setCard={setCard} setAddComment={setAddComment} user={user } />
-            {card?.Comments?.map((comment) => (<CommentItem key={comment.id} comment={comment} setCard={setCard} user={user } />))}
+            {card?.Reviews?.map((comment) => (<CommentItem key={comment.id} comment={comment} setCard={setCard} user={user } />))}
                         </>)}
       </>)}
 
