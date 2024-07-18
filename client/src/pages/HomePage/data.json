@@ -1,9 +1,9 @@
 {
     "type": "FeatureCollection",
     "features": [
-        {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [7.612873, 80.703810]}, "properties": {"balloonContentBody": "Да Цзинь Я (Китай)"}},
-        {"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [39.901849, 116.391441]}, "properties": {"balloonContentBody": "<font size=3><b><a target='_blank' href='http://yandex.ru'>Да Цзинь Я (Китай)</a></b></font>", "hintContent": "Да Цзинь Я"}},
-        {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [28.632853, 77.219725]}, "properties": {"balloonContentBody": "<font size=3><b><a target='_blank' href='http://yandex.ru'>Да Цзинь Я (Китай)</a></b></font>", "hintContent": "Да Цзинь Я"}}      
+        {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [7.612873, 80.703810]}, "properties": {"hint": "Мурманск"}},
+        {"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [39.901849, 116.391441]}, "properties": {"balloonContentBody": "<font size=3><b></b></font>", "hintContent": "Да Цзинь Я"}},
+        {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [28.632853, 77.219725]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://yandex.ru'>Хармутти FTGFOP (Индия)</a></b></font>", "hintContent": "Хармутти FTGFOP"}}      
     ]
 }
 

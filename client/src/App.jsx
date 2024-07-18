@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import Root from './Root';
 import { useEffect, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
