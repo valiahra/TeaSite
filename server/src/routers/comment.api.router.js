@@ -16,6 +16,23 @@ router
     }
   })
 
+  .get("/:userId", async (req, res) => {
+    // const { userId } = req.params;
+    try {
+      const { userId } = req.params;
+      // console.log('popopopopopo',typeof userId)
+      // console.log('titititititititit');
+      const comments = await Review.findAll({
+        // include: [{ model: User, where: { userId } },]
+        where: { userId }
+      });
+      res.json(comments);
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(400);
+    }
+  })
+
   .post("/new", verifyAccessToken, async (req, res) => {
     const { text, teaId, author } = req.body;
     // const { teaId } = req.body.teaId;

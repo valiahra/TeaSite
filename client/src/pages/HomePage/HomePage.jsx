@@ -3,10 +3,10 @@ import styles from './HomePage.module.css';
  import axiosInstance from '../../axiosInstance';
 // import AuthForm from '../../components/AuthForm/AuthForm';
 // import "../node_modules/bootstrap/scss/functions";
-import ListCoffee from '../ListCofee/ListCoffee';
+// import ListCoffee from '../ListCofee/ListCoffee';
 // import axios from 'axios';
-import Form from '../Form/Form';
-import Pagination from './Pagination';
+// import Form from '../Form/Form';
+// import Pagination from './Pagination';
 
 
 
@@ -23,8 +23,8 @@ function TeaMap() {
 
 export default function HomePage({user, setUser,teas, setTeas}) {
   const [value, setValue] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [coffeesPerPage] = useState(2);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [coffeesPerPage] = useState(2);
   
   // console.log(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_API}/coffee`)
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function HomePage({user, setUser,teas, setTeas}) {
       .then((res) => {
         // console.log(res.data)
         setTeas(res.data);
-        console.log(res.data)
+        // console.log(res.data)
       })
       .catch((err) => console.error(err));
   }, []);
