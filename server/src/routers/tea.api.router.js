@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 const router = require("express").Router();
-const { Tea } = require("../../db/models");
+const { Tea, User, Review } = require("../../db/models");
 const { verifyAccessToken } = require("../middlewares/verifyToken");
 const { isAdmin } = require("../middlewares/isAdmin");
 
@@ -17,7 +17,10 @@ router
   .get("/:id", async (req, res) => {
     try {
       const { id } = req.params;
-      const tea = await Tea.findOne({ where: { id } });
+      const tea = await Tea.findOne({
+        include: [{ model: Review }],
+        where: { id },
+      });
       res.json(tea);
     } catch (error) {
       console.error(error);
