@@ -43,7 +43,7 @@ export default function Navbar1({ user, setUser }) {
       <Nav className="me-auto">
       {user?.username ? (
           <>
-            <Nav.Link href='/'>{user.username}</Nav.Link>
+            <Nav.Link href='/admin'>{user.username}</Nav.Link>
             <Nav.Link onClick={logoutHandler}>Выйти</Nav.Link>
           </>
         ) : (

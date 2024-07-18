@@ -21,8 +21,7 @@ function TeaMap() {
 
 
 
-export default function HomePage({user, setUser}) {
-  const [teas, setTeas] = useState([]);
+export default function HomePage({user, setUser,teas, setTeas}) {
   const [value, setValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [coffeesPerPage] = useState(2);
@@ -53,8 +52,8 @@ export default function HomePage({user, setUser}) {
 
   return (
     <>
-    {user.isAdmin? (<Form teas={teas} setTeas={setTeas}/>) : null}
-    
+    {/* {user.isAdmin? (<Form teas={teas} setTeas={setTeas}/>) : null}
+     */}
     <div > 
       
     {/* <input style={{
@@ -68,7 +67,7 @@ export default function HomePage({user, setUser}) {
             }}  onChange={(event) => setValue(event.target.value)} type='text' name='search' placeholder='Search coffee'/> */}
     
 
-      <ListCoffee teas={teas} setTeas={setTeas} user={user} setUser={setUser}/>
+      {/* <ListCoffee teas={teas} setTeas={setTeas} user={user} setUser={setUser}/> */}
       {/* <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>       */}
         <TeaMap />
         
