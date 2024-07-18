@@ -3,15 +3,18 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axiosInstance from '../../axiosInstance';
 import { useEffect, useState } from 'react';
+import CommentItem from '../CommentItem/CommentItem';
+import FormAddComment from '../FormAddComment/FormAddComment';
 
-export default function InfoCard() {
-  const [card, setCard] = useState({})
-    const { id } = useParams();
-    const back = useNavigate()
+export default function InfoCard({user}) {
+  const [card, setCard] = useState({Comments:[]})
+  const { id } = useParams();
+  const back = useNavigate();
+  const [addComment, setAddComment] = useState(true);
 
     useEffect(() => {
       axiosInstance
-        .get(`${import.meta.env.VITE_API}/coffee/${id}`)
+        .get(`${import.meta.env.VITE_API}/tea/${id}`)
         .then((res) => {
            console.log(res.data)
            setCard(res.data);
@@ -19,25 +22,31 @@ export default function InfoCard() {
         })
         .catch((err) => console.error(err));
     }, []);
-    // console.log(card.img)
+    
   return (
     
       <Card style={{ width: '49rem' , marginTop:'3%', marginLeft:'30%'}}>
       <Card.Img variant="top" src={`${import.meta.env.VITE_BASE_URL}${card.img}`} />
       <Card.Body>
-        <Card.Title>{card.name}</Card.Title>
-        <Card.Title>Тип кофе: {card.coffeeType}</Card.Title>
-        <Card.Title>Обжарка: {card.roasting}</Card.Title>
-        <Card.Title>Страна производитель: {card.country}</Card.Title>
+        <Card.Title>{card.title}</Card.Title>
+        <Card.Title>{card.placeOrigin}</Card.Title>
+       
         <hr/>
         <Card.Text>
-        {card.price} руб.
-        </Card.Text>
-        <Card.Text>
-        {card.info} 
+        {card.description} 
         </Card.Text>
         <Button  onClick={() => back(-1)} variant="primary" class="btn btn-outline-dark">Назад</Button>
       </Card.Body>
+      {user.username && (<>
+            {addComment ? (<>
+      <button type='button' onClick={() => setAddComment((prev) => !prev)} className='add-remind-button'>add remind</button>
+          {card?.Reviews?.map((comment) => (<CommentItem key={comment.id} comment={comment} setCard={setCard} user={user } />))}
+                    </>) : (<>
+          <FormAddComment card={card} setCard={setCard} setAddComment={setAddComment} user={user } />
+            {card?.Reviews?.map((comment) => (<CommentItem key={comment.id} comment={comment} setCard={setCard} user={user } />))}
+                        </>)}
+      </>)}
+
     </Card>
    
   )
