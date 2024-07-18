@@ -15,19 +15,19 @@ import data from './data.json';
 
 const mapState = { center: [28.221740, 98.369353], zoom: 3 };
 const ObjectManagerDemo = () =>
-  <YMaps>
+  <YMaps
+  
+  >
     <Map state={mapState} width='1550px' height='600px' >
       <ObjectManager
         options={{
           clusterize: true,
           gridSize: 32,
-        }}
-        properties={{
-          hintContent: 'Собственный значок метки',
-          balloonContentHeader: 'Это красивая метка'
-        }}
+        }}        
         objects={{
           preset: 'islands#greenDotIcon',
+          hasBalloon: true,
+          
         }}
         clusters={{
           preset: 'islands#greenClusterIcons',
