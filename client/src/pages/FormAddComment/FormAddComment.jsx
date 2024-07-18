@@ -2,6 +2,7 @@ import React, { useState } from'react';
 import axiosInstance from '../../axiosInstance';
 function FormAddComment({ card, setCard, setAddComment, user }) {
     const [text, setText] = useState('');
+  
     const [error, setError] = useState(null);
     const handleAddComment = async(e) => {
         e.preventDefault();
@@ -10,9 +11,10 @@ function FormAddComment({ card, setCard, setAddComment, user }) {
           return;
   }
          const response = await axiosInstance.post(
-      `${import.meta.env.VITE_API}/comments/new`, { text, teaId: card.id, userId: user.id })
+      `${import.meta.env.VITE_API}/comments/new`, { text, teaId: card.id, userId: user.id, author: user.username })
+      console.log(response)
         if (response.status === 200) {
-            setCard((prev) => { return {...prev, ['Comments']: [...prev.Comments, response.data]}
+             setCard((prev) => { return {...prev, ['Reviews']: [...prev.Reviews, response.data]}
         
             })
             setAddComment((prev)=> !prev)

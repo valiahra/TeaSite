@@ -46,11 +46,11 @@ function App() {
           element: <SignupPage setUser={setUser} />,
         },
         {
-          path: '/coffee/:id',
+          path: '/tea/:id',
           element: <InfoCard user={user } />,
         },
         {
-          path: '/coffee/:id/:edit',
+          path: '/tea/:id/:edit',
           element: <EditCard />,
         },
       ],
