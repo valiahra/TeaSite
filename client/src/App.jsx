@@ -47,7 +47,7 @@ function App() {
         },
         {
           path: '/coffee/:id',
-          element: <InfoCard />,
+          element: <InfoCard user={user } />,
         },
         {
           path: '/coffee/:id/:edit',
