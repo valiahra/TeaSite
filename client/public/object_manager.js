@@ -27,7 +27,8 @@ function init () {
     "features": [
         {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [7.61, 80.70]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Ува Оранж Пеко (Цейлон)</a></b></font>", "hintContent": "Ува Оранж Пеко"}},
         {"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [39.901849, 116.391441]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Да Цзинь Я (Китай)</a></b></font>", "hintContent": "Да Цзинь Я"}},
-        {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [28.632853, 77.219725]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Хармутти FTGFOP (Индия)</a></b></font>", "hintContent": "Хармутти FTGFOP"}}      
+        {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [28.632853, 77.219725]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Хармутти FTGFOP (Индия)</a></b></font>", "hintContent": "Хармутти FTGFOP"}},
+        {"type": "Feature", "id": 3, "geometry": {"type": "Point", "coordinates": [2.772853, 77.429725]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Хармутти FTGFOP (Индия)</a></b></font>", "hintContent": "Хармутти FTGFOP"}}      
     ]
 }
         objectManager.add(data);
