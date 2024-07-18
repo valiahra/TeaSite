@@ -38,6 +38,7 @@ export default function HomePage({user, setUser}) {
       })
       .catch((err) => console.error(err));
   }, []);
+  
 // console.log(coffees)
 
 // const filteredCoffee = teas.filter((tea)=>{

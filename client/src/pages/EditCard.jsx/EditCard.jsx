@@ -14,24 +14,24 @@ export default function EditCard() {
   const submitHandler = async (e) => {
     e.preventDefault();
     let res = axiosInstance.put(
-      `${import.meta.env.VITE_API}/coffee/${id}/edit`,
+      `${import.meta.env.VITE_API}/tea/${id}/edit`,
       card
     );
     if (res.status === 200) {
-      setCard({
-        title: "",
-        author: "",
-        photo: "",
-        price: "",
-        description: "",
-        specifications: "",
-      });
+      // setCard({
+      //   title: "",
+      //   placeOrigin: "",
+      //   photo: "",
+      //   price: "",
+      //   description: "",
+      //   specifications: "",
+      // });
     }
   };
 
   useEffect(() => {
     axiosInstance
-      .get(`${import.meta.env.VITE_API}/coffee/${id}`)
+      .get(`${import.meta.env.VITE_API}/tea/${id}`)
       .then((res) => {
         console.log(res.data);
         setCard(res.data);
@@ -41,7 +41,7 @@ export default function EditCard() {
   return (
     <form onSubmit={submitHandler} style={{ marginTop: "3%", boxShadow: "0 0 5px 5px lightGrey" }}>
       <>
-       
+     
         <input
           onChange={changeHandler}
           style={{
@@ -53,9 +53,9 @@ export default function EditCard() {
             boxShadow: "0 0 5px 5px lightGrey",
             marginTop: "1%",
           }}
-          name="name"
-          placeholder="name"
-          value={card.name}
+          name="title"
+          placeholder="title"
+          value={card.title}
         />
         <input
           onChange={changeHandler}
@@ -68,9 +68,9 @@ export default function EditCard() {
             boxShadow: "0 0 5px 5px lightGrey",
             marginTop: "1%",
           }}
-          name="price"
-          placeholder="price"
-          value={card.price}
+          name="placeOrigin"
+          placeholder="placeOrigin"
+          value={card.placeOrigin}
         />
         <input
           onChange={changeHandler}
@@ -98,9 +98,9 @@ export default function EditCard() {
             boxShadow: "0 0 5px 5px lightGrey",
             marginTop: "1%",
           }}
-          name="like"
-          placeholder="like"
-          value={card.like}
+          name="corX"
+          placeholder="corX"
+          value={card.corX}
         />
         <input
           onChange={changeHandler}
@@ -113,9 +113,9 @@ export default function EditCard() {
             boxShadow: "0 0 5px 5px lightGrey",
             marginTop: "1%",
           }}
-          name="coffeeType"
-          placeholder="coffeeType"
-          value={card.coffeeType}
+          name="corY"
+          placeholder="corY"
+          value={card.corY}
         />
         <input
           onChange={changeHandler}
@@ -128,25 +128,11 @@ export default function EditCard() {
             boxShadow: "0 0 5px 5px lightGrey",
             marginTop: "1%",
           }}
-          name="roasting"
-          placeholder="roasting"
-          value={card.roasting}
+          name="link"
+          placeholder="link"
+          value={card.link}
         />
-        <input
-          onChange={changeHandler}
-          style={{
-            borderRadius: "8px",
-            border: "1px solid #cecece",
-            fontSize: "20px",
-            marginLeft: "35%",
-            width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
-            marginTop: "1%",
-          }}
-          name="country"
-          placeholder="country"
-          value={card.country}
-        />
+        
         <br />
         <textarea
           style={{
@@ -159,9 +145,9 @@ export default function EditCard() {
             marginTop: "1%",
           }}
           onChange={changeHandler}
-          name="info"
-          placeholder="info"
-          value={card.info}
+          name="description"
+          placeholder="description"
+          value={card.description}
         />
         <br />
         <Button
