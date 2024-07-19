@@ -1,4 +1,6 @@
 import React, { useState } from'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import axiosInstance from '../../axiosInstance';
 function FormAddComment({ card, setCard, setAddComment, user }) {
     const [text, setText] = useState('');
@@ -23,10 +25,21 @@ function FormAddComment({ card, setCard, setAddComment, user }) {
     return (
         <>
           { user && (
-          <form onSubmit={handleAddComment}>
-          <textarea placeholder='your comment' value={text} onChange={(e) => setText(e.target.value)} />
-          <button type='submit'>Save</button>
-          <button type='submit' onClick={()=>setAddComment((prev)=> !prev)}>Cancel</button>
+          <form width='500px' onSubmit={handleAddComment}>
+          <textarea style={{
+            borderRadius: "8px",
+            border: "1px solid #CECECE",
+            fontSize: "14px",
+            marginLeft: "1%",
+            width: "90%",
+            heigth: "100px",
+            boxShadow: "0 0 5px 5px lightGrey",
+            marginTop: "1%",
+          }} display='block' width='100%' placeholder='your comment' value={text} onChange={(e) => setText(e.target.value)} />
+          <br></br>
+          <Button style={{margin: "2%"}}
+          type='submit'>Save</Button>          
+          <Button type='submit' onClick={()=>setAddComment((prev)=> !prev)}>Cancel</Button>
       </form>     
       )}
         </>

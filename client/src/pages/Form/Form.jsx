@@ -70,7 +70,7 @@ export default function Form({ teas, setTeas }) {
             }}
             onChange={inputsHandler}
             name="title"
-            placeholder="title"
+            placeholder="Название чая"
             value={inputs.title}
           />
           <input
@@ -86,7 +86,7 @@ export default function Form({ teas, setTeas }) {
             }}
             onChange={inputsHandler}
             name="img"
-            placeholder="img"
+            placeholder="Загрузить картинку"
             value={inputs.img}
           />
           <input
@@ -102,7 +102,7 @@ export default function Form({ teas, setTeas }) {
             }}
             onChange={inputsHandler}
             name="placeOrigin"
-            placeholder="placeOrigin"
+            placeholder="Страна"
             value={inputs.placeOrigin}
           />
             <input
@@ -118,7 +118,7 @@ export default function Form({ teas, setTeas }) {
             }}
             onChange={inputsHandler}
             name="corX"
-            placeholder="corX"
+            placeholder="Координата X"
             value={inputs.corX}
           />
               <input
@@ -133,7 +133,7 @@ export default function Form({ teas, setTeas }) {
             }}
             onChange={inputsHandler}
             name="corY"
-            placeholder="corY"
+            placeholder="Координата Y"
             value={inputs.corY}
           />
 <br/>
@@ -150,7 +150,7 @@ export default function Form({ teas, setTeas }) {
             }}
             onChange={inputsHandler}
             name="description"
-            placeholder="description"
+            placeholder="Описание чая"
             value={inputs.description}
           />
           <br/>

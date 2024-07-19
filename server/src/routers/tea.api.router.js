@@ -8,7 +8,7 @@ router
   .get("/", async (req, res) => {
     try {
       const tea = await Tea.findAll();
-      res.json(tea);
+      res.json(tea.sort((a, b) => b.id - a.id));
     } catch (error) {
       console.error(error);
       res.sendStatus(400);

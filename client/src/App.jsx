@@ -12,7 +12,7 @@ import ListCoffee from './pages/ListCofee/ListCoffee';
 
 function App() {
   const [user, setUser] = useState({});
-  const [teas, setTeas] = useState([]);
+  const [teas, setTeas] = useState(null);
 
   useEffect(() => {
     axiosInstance.get(`api/v1/tokens/refresh`).then((res) => {

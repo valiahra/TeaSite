@@ -10,16 +10,7 @@ import Form from '../Form/Form';
 import Pagination from './Pagination';
 import TeaMap from './TeaMap';
 
-
-
-
-
-
-
-
-
-
-export default function HomePage({user, setUser,teas, setTeas}) {
+export default function HomePage({user, setUser, teas, setTeas}) {
   const [value, setValue] = useState('');
   // const [currentPage, setCurrentPage] = useState(1);
   // const [coffeesPerPage] = useState(2);
@@ -39,13 +30,9 @@ export default function HomePage({user, setUser,teas, setTeas}) {
   }, []);
 
         // console.log(res.data)
-      })
-      .catch((err) => console.error(err));
-  }, []);
+  
   
 // console.log(coffees)
-
-
 
   // console.log(coffees)
 
@@ -83,8 +70,8 @@ export default function HomePage({user, setUser,teas, setTeas}) {
 
  
         {/* <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>       */}
-        <TeaMap teas={teas}/>
-      </div>
+        {teas?<TeaMap teas={teas}/>:null}
+ 
 
       {/* <ListCoffee teas={teas} setTeas={setTeas} user={user} setUser={setUser}/> */}
       {/* <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>       */}
