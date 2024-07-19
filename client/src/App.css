@@ -1,5 +1,5 @@
-html {
-  font-family: "Montserrat", sans-serif;
+/* html {
+  font-family: 'Montserrat', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -8,4 +8,21 @@ html {
 body {
   background-color: #30469c;
   color: '#f8f9fb';
+} */
+
+#map {
+  width: 1300px; height: 600px; padding: 0; margin: 70px;  margin-left: 150px;
 }
+
+/* a {
+  color: #04b; 
+  text-decoration: none; 
+}
+
+a:visited {
+  color: #04b; 
+}
+
+a:hover {
+  color: #f50000;
+} */

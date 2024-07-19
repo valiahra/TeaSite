@@ -4,13 +4,13 @@ import axiosInstance from "../../axiosInstance";
 import { useState } from "react";
 // import axios from "axios";
 
-export default function CardOfCoffee({ coffee, setCoffees, user, setUser}) {
-  const [count, setCount] = useState(coffee.like);
+export default function CardOfCoffee({ tea, setTeas, user, setUser}) {
+  const [count, setCount] = useState(tea.like);
   // console.log(count);
 // console.log(coffee)
   async function addLike() {
     try {
-      const res = await axiosInstance.get(`${import.meta.env.VITE_API}/coffee/like/${coffee.id}`);
+      const res = await axiosInstance.get(`${import.meta.env.VITE_API}/coffee/like/${tea.id}`);
       console.log(res.data)
       setCount((pre) => pre + 1);
     } catch (error) {
@@ -20,20 +20,20 @@ export default function CardOfCoffee({ coffee, setCoffees, user, setUser}) {
 
   const deleteHandler = async () => {
     const res = await axiosInstance.delete(
-      `${import.meta.env.VITE_API}/coffee/${coffee.id}`
+      `${import.meta.env.VITE_API}/tea/${tea.id}`
     );
 
     if (res.status === 200) {
-      setCoffees((prev) => prev.filter((el) => el.id !== coffee.id));
+      setTeas((prev) => prev.filter((el) => el.id !== tea.id));
     }
   };
   return (
-    
+   
     <Card style={{ width: "37rem",height:'26rem', marginTop: "2%", marginLeft: "31%"}} border="light">
-      <Card.Img variant="top" src={`${import.meta.env.VITE_BASE_URL}${coffee.img}`} />
+      <Card.Img variant="top" src={`${import.meta.env.VITE_BASE_URL}${tea.img}`} />
       <Card.Body >
-        <Card.Title>{coffee.name}</Card.Title>
-        <Card.Text>{coffee.price} руб.</Card.Text>
+        <Card.Title>{tea.title}</Card.Title>
+        <Card.Text>{tea.placeOrigin} руб.</Card.Text>
         <hr />
         <Button onClick={addLike} style={{ marginRight: "2%" }}>
           <svg
@@ -52,12 +52,12 @@ export default function CardOfCoffee({ coffee, setCoffees, user, setUser}) {
           Удалить
         </Button>) : null}
         {user.isAdmin ? (
-          <Card.Link style={{ marginLeft: "40%", color:'pink',marginBottom: "3%"}} href={`/coffee/${coffee.id}/edit`}>
+          <Card.Link style={{ marginLeft: "40%", color:'pink',marginBottom: "3%"}} href={`/tea/${tea.id}/edit`}>
           Редактирование
         </Card.Link>
        ) : null}
         <br/>
-        <Card.Link style={{ marginLeft: "70%", color:'lightBlue'}} href={`/coffee/${coffee.id}`}>
+        <Card.Link style={{ marginLeft: "70%", color:'lightBlue'}} href={`/tea/${tea.id}`}>
           Подробнее
         </Card.Link>
       </Card.Body>
