@@ -7,6 +7,8 @@ import ListCoffee from '../ListCofee/ListCoffee';
 // import axios from 'axios';
 import Form from '../Form/Form';
 import Pagination from './Pagination';
+import TeaMap from './TeaMap';
+
 
 export default function HomePage({ user, setUser }) {
   const [teas, setTeas] = useState([]);
@@ -26,64 +28,7 @@ export default function HomePage({ user, setUser }) {
       .catch((err) => console.error(err));
   }, []);
 
-  function TeaMap() {
-    ymaps.ready(init);
-    console.log('Карта загрузилась', ymaps);
-    function init() {
-      var myMap = new ymaps.Map(
-          'map',
-          {
-            center: [28.22174, 98.369353],
-            zoom: 3,
-          },
-          {
-            searchControlProvider: 'yandex#search',
-          }
-        ),
-        objectManager = new ymaps.ObjectManager({
-          // Чтобы метки начали кластеризоваться, выставляем опцию.
-          clusterize: true,
-          // ObjectManager принимает те же опции, что и кластеризатор.
-          gridSize: 32,
-          clusterDisableClickZoom: true,
-        });
 
-      // Чтобы задать опции одиночным объектам и кластерам,
-      // обратимся к дочерним коллекциям ObjectManager.
-      objectManager.objects.options.set('preset', 'islands#greenDotIcon');
-      objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
-      myMap.geoObjects.add(objectManager);
-      console.log('AAAAAAAAAAA', teas[0].title);
-      const dataTeas = teas.map((el) => ({
-        type: 'Feature',
-        id: el.id,
-        geometry: { type: 'Point', coordinates: [el.corX, el.corX] },
-        properties: {
-          balloonContentHeader: `<font size=3><b><a target='_blank' href= ${el.linc} > ${el.title}  </a></b></font>`,
-          hintContent: el.title,
-        },
-      }));
-      console.log('BBBBB', dataTeas);
-      const data = {
-        type: 'FeatureCollection',
-        features: dataTeas,
-
-        // [
-        //     {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [7.61, 80.70]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Ува Оранж Пеко (Цейлон)</a></b></font>", "hintContent": "Ува Оранж Пеко"}},
-        //     {"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [39.901849, 116.391441]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Да Цзинь Я (Китай)</a></b></font>", "hintContent": "Да Цзинь Я"}},
-        //     {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [28.632853, 77.219725]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Хармутти FTGFOP (Индия)</a></b></font>", "hintContent": "Хармутти FTGFOP"}},
-        //     {"type": "Feature", "id": 3, "geometry": {"type": "Point", "coordinates": [2.772853, 77.429725]}, "properties": {"balloonContentHeader": "<font size=3><b><a target='_blank' href='http://ya.ru'>Хармутти FTGFOP (Индия)</a></b></font>", "hintContent": "Хармутти FTGFOP"}}
-        // ]
-      };
-      objectManager.add(data);
-    }
-
-    return (
-      <>
-        <div id='map'></div>
-      </>
-    );
-  }
   // console.log(coffees)
 
   // const filteredCoffee = teas.filter((tea)=>{
@@ -118,7 +63,7 @@ export default function HomePage({ user, setUser }) {
           setUser={setUser}
         />
         {/* <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>       */}
-        <TeaMap />
+        <TeaMap teas={teas}/>
       </div>
     </>
   );
