@@ -40,7 +40,10 @@ export default function ListCoffee({teas, setTeas, user, setUser}) {
             <CardOfCoffee key={el.id} tea={el} setTeas={setTeas} user={user} setUser={setUser} />
           ))
         : null}
-      </>) : (<>{comments?.length ? comments.map((el) => <div key={el.id} >{el.text}</div>) : <></>}</>) }
+      </>) : (<><h2 style={{marginLeft: '15%'}}>Мои комментарии</h2>{comments?.length ? comments.map((el) =>
+        <div key={el.id} style={{ backgroundColor: 'white', width: '600px', minHeight: '100px', marginLeft: '15%', marginBottom: '40px', display: 'flex', justifyContent: 'space-between' }}>
+          {teas.map((tea) => el.teaId === tea.id ? (<div style={{minWidth: '300px',borderRight: '1px solid #9e9e9e'}} key={tea.id} ><p>{tea.title}</p><img style={{maxWidth: '30px', maxHeight: '30px'}} src={tea.img } /></div>): null) }
+          <div style={{marginRight: '5%'}}>{el.text}</div></div>) : <></>}</>)}
       
     
     </div>
