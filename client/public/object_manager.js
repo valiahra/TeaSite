@@ -33,5 +33,7 @@ function init () {
 }
         objectManager.add(data);
  
-
+        console.log(data)
 }
+
+

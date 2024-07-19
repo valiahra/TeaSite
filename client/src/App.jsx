@@ -8,9 +8,11 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import axiosInstance, { setAccessToken } from './axiosInstance';
 import InfoCard from './pages/InfoCard/InfoCard';
 import EditCard from './pages/EditCard.jsx/EditCard';
+import ListCoffee from './pages/ListCofee/ListCoffee';
 
 function App() {
   const [user, setUser] = useState({});
+  const [teas, setTeas] = useState([]);
 
   useEffect(() => {
     axiosInstance.get(`api/v1/tokens/refresh`).then((res) => {
@@ -35,7 +37,11 @@ function App() {
         // },
         {
           path: '/',
-          element: <HomePage  user={user} setUser={setUser}/>,
+          element: <HomePage  user={user} setUser={setUser} teas={teas} setTeas={setTeas}/>,
+        },
+        {
+          path: '/admin',
+          element: <ListCoffee  user={user} setUser={setUser}  teas={teas} setTeas={setTeas}/>,
         },
         {
           path: '/signin',

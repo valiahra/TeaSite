@@ -57,9 +57,9 @@ export default function CardOfCoffee({ tea, setTeas, user, setUser}) {
         </Card.Link>
        ) : null}
         <br/>
-        <Card.Link style={{ marginLeft: "70%", color:'lightBlue'}} href={`/tea/${tea.id}`}>
+        {/* <Card.Link style={{ marginLeft: "70%", color:'lightBlue'}} href={`/tea/${tea.id}`}>
           Подробнее
-        </Card.Link>
+        </Card.Link> */}
       </Card.Body>
     </Card>
   );

@@ -3,18 +3,27 @@ import styles from './HomePage.module.css';
 import axiosInstance from '../../axiosInstance';
 // import AuthForm from '../../components/AuthForm/AuthForm';
 // import "../node_modules/bootstrap/scss/functions";
-import ListCoffee from '../ListCofee/ListCoffee';
+// import ListCoffee from '../ListCofee/ListCoffee';
 // import axios from 'axios';
+
 import Form from '../Form/Form';
 import Pagination from './Pagination';
 import TeaMap from './TeaMap';
 
 
-export default function HomePage({ user, setUser }) {
-  const [teas, setTeas] = useState([]);
+
+
+
+
+
+
+
+
+export default function HomePage({user, setUser,teas, setTeas}) {
   const [value, setValue] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [coffeesPerPage] = useState(2);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [coffeesPerPage] = useState(2);
+  
 
   // console.log(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_API}/coffee`)
   useEffect(() => {
@@ -23,10 +32,19 @@ export default function HomePage({ user, setUser }) {
       .then((res) => {
         // console.log(res.data)
         setTeas(res.data);
+
         console.log(res.data);
       })
       .catch((err) => console.error(err));
   }, []);
+
+        // console.log(res.data)
+      })
+      .catch((err) => console.error(err));
+  }, []);
+  
+// console.log(coffees)
+
 
 
   // console.log(coffees)
@@ -43,10 +61,16 @@ export default function HomePage({ user, setUser }) {
 
   return (
     <>
-      {user.isAdmin ? <Form teas={teas} setTeas={setTeas} /> : null}
 
-      <div>
+
         {/* <input style={{
+
+    {/* {user.isAdmin? (<Form teas={teas} setTeas={setTeas}/>) : null}
+     */}
+ 
+      
+    {/* <input style={{
+
               borderRadius: "8px",
               border: "1px solid #cecece",
               fontSize: "17px",
@@ -56,15 +80,15 @@ export default function HomePage({ user, setUser }) {
               marginTop: "1%",
             }}  onChange={(event) => setValue(event.target.value)} type='text' name='search' placeholder='Search coffee'/> */}
 
-        <ListCoffee
-          teas={teas}
-          setTeas={setTeas}
-          user={user}
-          setUser={setUser}
-        />
+
+ 
         {/* <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>       */}
         <TeaMap teas={teas}/>
       </div>
+
+      {/* <ListCoffee teas={teas} setTeas={setTeas} user={user} setUser={setUser}/> */}
+      {/* <Pagination coffeesPerPage={coffeesPerPage} totalCoffees={coffees.length} paginate={paginate}/>       */}
+
     </>
   );
 }

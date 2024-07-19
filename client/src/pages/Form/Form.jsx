@@ -5,15 +5,14 @@ import Button from "react-bootstrap/Button";
 // import Form from 'react-bootstrap/Form';
 //  import InputGroup from 'react-bootstrap/InputGroup';
 
-export default function Form({ coffees, setCoffees }) {
+export default function Form({ teas, setTeas }) {
   const [inputs, setInputs] = useState({
-    name: "",
-    price: "",
+    title: "",
+    placeOrigin: "",
     img: "",
-    like: "",
-    coffeType: "",
-    roasting: "",
-    country: "",
+    description: "",
+    corX: '',
+    corY: '',
   });
   const [visible, setVisible] = useState(false);
 
@@ -28,29 +27,27 @@ export default function Form({ coffees, setCoffees }) {
     e.preventDefault();
 
     const response = await axiosInstance.post(
-      `${import.meta.env.VITE_API}/coffee/new`,
+      `${import.meta.env.VITE_API}/tea/new`,
       inputs
     );
     console.log(response.data);
     if (response.status === 200) {
-      setCoffees((prev) => [...prev, response.data]);
+      setTeas((prev) => [response.data, ...prev]);
       setInputs({
-        name: "",
-        price: "",
-        img: "",
-        like: "",
-        coffeType: "",
-        roasting: "",
-        country: "",
-        info: "",
+    title: "",
+    placeOrigin: "",
+    img: "",
+    corX: '',
+    corY: '',
+    description: "",
       });
     }
   };
 
   return (
-    <form onSubmit={submitHandler} style={{ marginTop: "3%" }}>
+    <form onSubmit={submitHandler} style={{ marginTop: "3%" , maxWidth: '400px', marginLeft: '30%'}}>
       <Button
-        style={{ marginLeft: "40%" }}
+        style={{ marginLeft: "30%" }}
         variant="dark"
         onClick={visibleHandler}
       >
@@ -64,15 +61,17 @@ export default function Form({ coffees, setCoffees }) {
               borderRadius: "8px",
               border: "1px solid #cecece",
               fontSize: "17px",
-              marginLeft: "8.5%",
-              width: "10%",
+              marginLeft: "0.5%",
+              width: "100%",
               boxShadow: "0 0 5px 5px lightGrey",
               marginTop: "1%",
+              display: 'block',
+              
             }}
             onChange={inputsHandler}
-            name="name"
-            placeholder="name"
-            value={inputs.name}
+            name="title"
+            placeholder="title"
+            value={inputs.title}
           />
           <input
             style={{
@@ -80,24 +79,10 @@ export default function Form({ coffees, setCoffees }) {
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0.5%",
-              width: "10%",
+              width: "100%",
               boxShadow: "0 0 5px 5px lightGrey",
               marginTop: "1%",
-            }}
-            onChange={inputsHandler}
-            name="price"
-            placeholder="price"
-            value={inputs.price}
-          />
-          <input
-            style={{
-              borderRadius: "8px",
-              border: "1px solid #cecece",
-              fontSize: "17px",
-              marginLeft: "0.5%",
-              width: "10%",
-              boxShadow: "0 0 5px 5px lightGrey",
-              marginTop: "1%",
+              display: 'block'
             }}
             onChange={inputsHandler}
             name="img"
@@ -110,59 +95,46 @@ export default function Form({ coffees, setCoffees }) {
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0.5%",
-              width: "10%",
+              width: "100%",
               boxShadow: "0 0 5px 5px lightGrey",
               marginTop: "1%",
+              display: 'block'
             }}
             onChange={inputsHandler}
-            name="like"
-            placeholder="like"
-            value={inputs.like}
+            name="placeOrigin"
+            placeholder="placeOrigin"
+            value={inputs.placeOrigin}
           />
-          <input
+            <input
             style={{
               borderRadius: "8px",
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0.5%",
-              width: "10%",
+              width: "49.5%",
               boxShadow: "0 0 5px 5px lightGrey",
               marginTop: "1%",
+              // display: 'block'
             }}
             onChange={inputsHandler}
-            name="coffeType"
-            placeholder="coffeType"
-            value={inputs.coffeType}
+            name="corX"
+            placeholder="corX"
+            value={inputs.corX}
           />
-          <input
+              <input
             style={{
               borderRadius: "8px",
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0.5%",
-              width: "10%",
+              width: "49.5%",
               boxShadow: "0 0 5px 5px lightGrey",
               marginTop: "1%",
             }}
             onChange={inputsHandler}
-            name="roasting"
-            placeholder="roasting"
-            value={inputs.roasting}
-          />
-          <input
-            style={{
-              borderRadius: "8px",
-              border: "1px solid #cecece",
-              fontSize: "17px",
-              marginLeft: "0.5%",
-              width: "10%",
-              boxShadow: "0 0 5px 5px lightGrey",
-              marginTop: "1%",
-            }}
-            onChange={inputsHandler}
-            name="country"
-            placeholder="country"
-            value={inputs.country}
+            name="corY"
+            placeholder="corY"
+            value={inputs.corY}
           />
 <br/>
           <textarea
@@ -170,15 +142,16 @@ export default function Form({ coffees, setCoffees }) {
               borderRadius: "8px",
               border: "1px solid #cecece",
               fontSize: "17px",
-              marginLeft: "32%",
-              width: "27%",
+              marginLeft: "0,5%",
+              width: "100%",
               boxShadow: "0 0 5px 5px lightGrey",
               marginTop: "1%",
+              display: 'block'
             }}
             onChange={inputsHandler}
-            name="info"
-            placeholder="info"
-            value={inputs.info}
+            name="description"
+            placeholder="description"
+            value={inputs.description}
           />
           <br/>
           <Button
