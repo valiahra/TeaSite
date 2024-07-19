@@ -76,7 +76,7 @@ export default function InfoCard({ user }) {
 
 
 <Card style={{ width: '49rem' , marginTop:'3%', marginLeft:'30%'}}>
-      <Card.Img variant="top" src={`${import.meta.env.VITE_BASE_URL}${card.img}`} />
+      <Card.Img style ={{width: '250px'}} variant="top" src={`http://localhost:3000/${card.img}`} />
       <Card.Body>
         <Card.Title>{card.title}</Card.Title>
         <Card.Title>{card.placeOrigin}</Card.Title>
