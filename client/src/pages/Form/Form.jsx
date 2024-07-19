@@ -45,9 +45,9 @@ export default function Form({ teas, setTeas }) {
   };
 
   return (
-    <form onSubmit={submitHandler} style={{ marginTop: "3%" , maxWidth: '400px', marginLeft: '30%'}}>
+    <form onSubmit={submitHandler} style={{ marginTop: "3%" , maxWidth: '700px', marginLeft: '27%'}}>
       <Button
-        style={{ marginLeft: "30%" }}
+        style={{ marginLeft: "37%" }}
         variant="dark"
         onClick={visibleHandler}
       >
@@ -58,12 +58,12 @@ export default function Form({ teas, setTeas }) {
         <>
           <input
             style={{
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0.5%",
               width: "100%",
-              boxShadow: "0 0 5px 5px lightGrey",
+              
               marginTop: "1%",
               display: 'block',
               
@@ -75,12 +75,12 @@ export default function Form({ teas, setTeas }) {
           />
           <input
             style={{
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0.5%",
               width: "100%",
-              boxShadow: "0 0 5px 5px lightGrey",
+              
               marginTop: "1%",
               display: 'block'
             }}
@@ -91,12 +91,12 @@ export default function Form({ teas, setTeas }) {
           />
           <input
             style={{
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0.5%",
               width: "100%",
-              boxShadow: "0 0 5px 5px lightGrey",
+              
               marginTop: "1%",
               display: 'block'
             }}
@@ -107,12 +107,12 @@ export default function Form({ teas, setTeas }) {
           />
             <input
             style={{
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid #cecece",
               fontSize: "17px",
-              marginLeft: "0.5%",
-              width: "49.5%",
-              boxShadow: "0 0 5px 5px lightGrey",
+              marginLeft: "0.1%",
+              width: "49.9%",
+              
               marginTop: "1%",
               // display: 'block'
             }}
@@ -123,12 +123,12 @@ export default function Form({ teas, setTeas }) {
           />
               <input
             style={{
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid #cecece",
               fontSize: "17px",
-              marginLeft: "0.5%",
-              width: "49.5%",
-              boxShadow: "0 0 5px 5px lightGrey",
+              marginLeft: "0.1%",
+              width: "49.9%",
+              
               marginTop: "1%",
             }}
             onChange={inputsHandler}
@@ -139,12 +139,12 @@ export default function Form({ teas, setTeas }) {
 <br/>
           <textarea
             style={{
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid #cecece",
               fontSize: "17px",
               marginLeft: "0,5%",
               width: "100%",
-              boxShadow: "0 0 5px 5px lightGrey",
+              
               marginTop: "1%",
               display: 'block'
             }}

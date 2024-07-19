@@ -11,9 +11,12 @@ body {
 } */
 
 #map {
-  width: 1300px; height: 600px; padding: 0; margin: 70px;  margin-left: 150px;
+  width: 1100px; height: 600px; padding: 0; margin: 70px;  margin-left: 100px;
 }
-
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
 /* a {
   color: #04b; 
   text-decoration: none; 

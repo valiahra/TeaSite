@@ -39,7 +39,7 @@ export default function Navbar1({ user, setUser }) {
 
     <Navbar bg="dark" data-bs-theme="dark">
     <Container>
-      <Navbar.Brand href="/">Coffee Shop</Navbar.Brand>
+      <Navbar.Brand className='navbar' href="/">Чайная лавка</Navbar.Brand>
       <Nav className="me-auto">
       {user?.username ? (
           <>

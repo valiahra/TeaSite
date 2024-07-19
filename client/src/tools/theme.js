@@ -4,8 +4,12 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: '#E6E6FA',
-        color: '#000000',
+             
+          bg: '#FFFAFA',
+          color: '#000000',
+          backgroundSize: 'cover',
+          backgroundImage: "tea23.jpg",
+        
       },
       a: {
         color: '#000000',

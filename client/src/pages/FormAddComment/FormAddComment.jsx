@@ -31,15 +31,15 @@ function FormAddComment({ card, setCard, setAddComment, user }) {
             border: "1px solid #CECECE",
             fontSize: "14px",
             marginLeft: "1%",
-            width: "90%",
+            width: "96%",
             heigth: "100px",
             boxShadow: "0 0 5px 5px lightGrey",
             marginTop: "1%",
-          }} display='block' width='100%' placeholder='your comment' value={text} onChange={(e) => setText(e.target.value)} />
+          }} display='block' width='100%' placeholder='Пишите здесь...' value={text} onChange={(e) => setText(e.target.value)} />
           <br></br>
           <Button style={{margin: "2%"}}
-          type='submit'>Save</Button>          
-          <Button type='submit' onClick={()=>setAddComment((prev)=> !prev)}>Cancel</Button>
+          type='submit'>Добавить</Button>          
+          <Button type='submit' onClick={()=>setAddComment((prev)=> !prev)}>Отмена</Button>
       </form>     
       )}
         </>

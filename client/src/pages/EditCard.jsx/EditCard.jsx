@@ -45,12 +45,12 @@ export default function EditCard() {
         <input
           onChange={changeHandler}
           style={{
-            borderRadius: "8px",
+            borderRadius: "4px",
             border: "1px solid #cecece",
             fontSize: "20px",
             marginLeft: "35%",
             width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
+            
             marginTop: "1%",
           }}
           name="title"
@@ -60,12 +60,12 @@ export default function EditCard() {
         <input
           onChange={changeHandler}
           style={{
-            borderRadius: "8px",
+            borderRadius: "4px",
             border: "1px solid #cecece",
             fontSize: "20px",
             marginLeft: "35%",
             width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
+            
             marginTop: "1%",
           }}
           name="placeOrigin"
@@ -75,12 +75,12 @@ export default function EditCard() {
         <input
           onChange={changeHandler}
           style={{
-            borderRadius: "8px",
+            borderRadius: "4px",
             border: "1px solid #cecece",
             fontSize: "20px",
             marginLeft: "35%",
             width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
+            
             marginTop: "1%",
           }}
           name="img"
@@ -90,12 +90,12 @@ export default function EditCard() {
         <input
           onChange={changeHandler}
           style={{
-            borderRadius: "8px",
+            borderRadius: "4px",
             border: "1px solid #cecece",
             fontSize: "20px",
             marginLeft: "35%",
             width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
+            
             marginTop: "1%",
           }}
           name="corX"
@@ -105,43 +105,29 @@ export default function EditCard() {
         <input
           onChange={changeHandler}
           style={{
-            borderRadius: "8px",
+            borderRadius: "4px",
             border: "1px solid #cecece",
             fontSize: "20px",
             marginLeft: "35%",
             width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
+           
             marginTop: "1%",
           }}
           name="corY"
           placeholder="corY"
           value={card.corY}
         />
-        <input
-          onChange={changeHandler}
-          style={{
-            borderRadius: "8px",
-            border: "1px solid #cecece",
-            fontSize: "20px",
-            marginLeft: "35%",
-            width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
-            marginTop: "1%",
-          }}
-          name="link"
-          placeholder="link"
-          value={card.link}
-        />
+       
         
         <br />
         <textarea
           style={{
-            borderRadius: "8px",
+            borderRadius: "4px",
             border: "1px solid #cecece",
             fontSize: "20px",
             marginLeft: "35%",
             width: "30%",
-            boxShadow: "0 0 5px 5px lightGrey",
+            
             marginTop: "1%",
           }}
           onChange={changeHandler}
@@ -152,7 +138,7 @@ export default function EditCard() {
         <br />
         <Button
           style={{
-            borderRadius: "8px",
+            borderRadius: "4px",
             fontSize: "20px",
             marginTop: "0.5%",
             marginLeft: "44%",
