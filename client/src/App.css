@@ -11,10 +11,7 @@ body {
 } */
 
 #map {
-  width: 1550px;
-  height: 600px;
-  padding: 0;
-  margin: 25px;
+  width: 1300px; height: 600px; padding: 0; margin: 70px;  margin-left: 150px;
 }
 
 /* a {
